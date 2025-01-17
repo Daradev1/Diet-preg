@@ -1,0 +1,13 @@
+.custom-navbar {
+    padding: 0;
+  }
+  
+  .custom-text {
+    color: black !important;
+    transition: color 0.3s;
+  }
+  
+  .custom-text:hover {
+    color: #4e4e4e !important; /* Ash color */
+  }
+  
