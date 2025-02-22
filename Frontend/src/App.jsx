@@ -5,11 +5,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Diet from './Pages/Diet';
 const App = () => {
   return (
     <div >
-   <NavigationBar/>   
-      <Home/>
+   <NavigationBar/>
+   <Router>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/diet-recomendation' element={<Diet/>}/>
+      
+    </Routes>
+    </Router>   
+      
     </div>
   )
 }
