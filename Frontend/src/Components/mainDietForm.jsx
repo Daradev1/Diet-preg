@@ -22,8 +22,10 @@ const DietRecommendationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
+    console.log(formData);
+    
     try {
-      const response = await fetch('YOUR_BACKEND_URL', {
+      const response = await fetch('http://localhost:3000/api/diet/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +33,7 @@ const DietRecommendationForm = () => {
         body: JSON.stringify(formData),
       });
       const result = await response.json();
-      if (result.data) {
+      if (result) {
         console.log('Success:', result);
         setDietResult(result)
       }
@@ -108,7 +110,6 @@ const DietRecommendationForm = () => {
           required
         >
           <option value="">Choose your activity level</option>
-          <option value="sedentary">Sedentary</option>
           <option value="light">Light Activity</option>
           <option value="moderate">Moderate Activity</option>
           <option value="active">Active</option>
@@ -129,22 +130,7 @@ const DietRecommendationForm = () => {
     <div className="text-center">
     <h1 className="text-2xl font-bold mb-5">Diet Results</h1>
     <div className="space-y-4">
-    <div>
-        <h2 className="text-lg font-semibold">Duration:</h2>
-        <p>{results.duration}</p>
-    </div>
-    <div>
-        <h2 className="text-lg font-semibold">Diet:</h2>
-        <p>{results.diet}</p>
-    </div>
-    <div>
-        <h2 className="text-lg font-semibold">Results:</h2>
-        <p>{results.results}</p>
-    </div>
-    <div>
-        <h2 className="text-lg font-semibold">Food Type:</h2>
-        <p>{results.foodType}</p>
-    </div>
+    {/* table */}
     <button
         className="w-full bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
         onClick={() => alert('Download functionality to be implemented')}
@@ -153,7 +139,7 @@ const DietRecommendationForm = () => {
     </button>
     <button
         className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-        onClick={handleNewDiet}
+        onClick={''}
     >
         Recommend New Diet
     </button>

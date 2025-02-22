@@ -12,6 +12,7 @@ body {
   } */
 body{
     background-color: #FFFFFF;
+    overflow-x: hidden;
 }
 
   .swiper-slide{
@@ -20,10 +21,10 @@ body{
     align-items: center;
     background-color: #FFFFFF;
   }
-  .swiper-slide img {
+  .swiperImg{
     display: block;
-    width: 400px;
-    height: 100%;
+    width: 350px;
+    height: 400px;
     object-fit: cover;
   }
   .swiper-pagination-bullet {

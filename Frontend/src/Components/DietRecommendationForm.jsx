@@ -3,7 +3,7 @@ import whatDiet from '../assets/whatDiet.jpg'
 
 const DietRecommendationForm = () => {
   return (
-    <div className="flex items-center justify-center h-full w-[400px] mx-auto mb-16">
+    <div className="flex items-center justify-center mt-20 h-full w-[400px] mx-auto mb-16">
       <div className="bg-card rounded-lg shadow-lg py-2 px-4 w-full max-w-md">
         <h2 className="text-pink-500 text-center text-xl font-bold capitalize ">Know Your Diet</h2>
         <p className="text-center text-gray-800 mb-2 text-xl capitalize font-semibold">Get Started With Your Diet Plans</p>

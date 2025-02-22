@@ -1,11 +1,13 @@
 import React from 'react';
 import ladyImg from '../assets/ladyImg.png';
 import bgImg from '../assets/bgImg.jpg'; // Import the background image
-
+import {useNavigate} from 'react-router-dom'
 const Hero = () => {
+  const navigate = useNavigate()
   return (
     <div
-      className="relative bg-cover z-50 bg-center bg-no-repeat h-full"
+    id='home'
+      className="relative  bg-cover z-40 bg-center bg-no-repeat h-full mb-20"
       style={{ backgroundImage: `url(${bgImg})`, }} // Use the imported image
     >
       {/* Dark overlay */}
@@ -15,7 +17,7 @@ const Hero = () => {
         {/* Left Text Section */}
         <div className="text-white text-center lg:text-left max-w-lg">
           <h1 className="text-4xl md:text-3xl mb-4 capitalize  mt-8">Nourishing with healthy <span className="text-button">food</span> choices</h1>
-          <button className="bg-button text-white font-bold py-2 px-4 rounded-sm">
+          <button onClick={()=> navigate('/diet-recomendation')} className="bg-button text-white font-bold py-2 px-4 rounded-sm">
             Get Started
           </button>
         </div>

@@ -9,21 +9,21 @@ const Carousel = () => {
   const cards = [
     {
       title: 'Know Your Pregnancy Stage',
-      subtitle: '1st Trimester / 2nd Trimester / 3rd Trimester',
+      subtitle: '1st Trimester',
       description: 'Pregnancy is divided into three trimesters. In the first trimester, the embryo develops major organs...',
       buttonText: 'Learn More',
       imgSrc: pregWoman // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
-      subtitle: '1st Trimester / 2nd Trimester / 3rd Trimester',
+      subtitle: '2nd Trimester',
       description: 'Pregnancy is divided into three trimesters. In the first trimester, the embryo develops major organs...',
       buttonText: 'Learn More',
       imgSrc: pregWoman // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
-      subtitle: '1st Trimester / 2nd Trimester / 3rd Trimester',
+      subtitle: '3rd Trimester',
       description: 'Pregnancy is divided into three trimesters. In the first trimester, the embryo develops major organs...',
       buttonText: 'Learn More',
       imgSrc: pregWoman // Replace with actual image paths
@@ -64,7 +64,7 @@ const Carousel = () => {
       <h2 className='text-gray-700 my-2 font-semibold'>{item.subtitle}</h2>
         <div className='flex items-center justify-between'>
        <div className='w-[43%] h-full'>
-        <img src={item.imgSrc} className='w-full h-[100%]' alt=""/>
+        <img src={item.imgSrc} className='w-full swiperrImg ' alt=""/>
        </div>
        <div className='w-[55%] text-left flex felx flex-col gap-3'>
         <p className='text-base text-gray-600'>{item.description}</p>
