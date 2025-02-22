@@ -10,7 +10,7 @@ const port = 3000
 app.use(express.json());
 
 // api endpoint
-
+app.get('/', (req,res)=>res.send('api is active'))
 app.use('/api/diet',dietRouter)
 
 
