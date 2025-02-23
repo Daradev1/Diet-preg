@@ -54,17 +54,19 @@ function recommendMeals(mealPlan) {
 
 // Express controller function
   const dietController = async (req,res)=>{ 
+    console.log('req received');
+    
     try {
         // Destructure user inputs from req.body
-        const { weight, height, age, activityLevel, trimester } = req.body;
+        const { weight, height, age, dailyActivity, pregnancyStage } = req.body;
 
         // Validate required fields
-        if (!weight || !height || !age || !activityLevel || !trimester) {
-            return res.status(400).json({ error: "Missing required fields in request body" });
+        if (!weight || !height || !age || !dailyActivity || !pregnancyStage) {
+            return res.status(404).json({ error: "Missing required fields in request body" });
         }
 
         // Run calculations
-        let totalCalories = calculateCalories(weight, height, age, activityLevel, trimester);
+        let totalCalories = calculateCalories(weight, height, age, dailyActivity, pregnancyStage);
         let mealPlan = distributeMeals(totalCalories);
         let recommendedMeals = recommendMeals(mealPlan);
 
