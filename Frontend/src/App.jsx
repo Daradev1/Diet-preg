@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Diet from './Pages/Diet';
+import AboutPage from './Pages/AboutPage';
 const App = () => {
   return (
     <div >
@@ -15,7 +16,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/diet-recomendation' element={<Diet/>}/>
-      
+      <Route path='/about' element={<AboutPage/>}/>
     </Routes>
     </Router>   
       

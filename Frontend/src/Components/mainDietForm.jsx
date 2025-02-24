@@ -26,7 +26,7 @@ const DietRecommendationForm = () => {
     console.log(formData);
     
     try {
-      const response = await fetch('http://localhost:3000/api/diet/recommend', {
+      const response = await fetch('https://diet-preg-server.vercel.app/api/diet/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,16 +127,16 @@ const DietRecommendationForm = () => {
           </div>
       ) : (
         // Show results if available
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-5">Diet Results</h1>
+        <div className="text-center py-10">
+          <h1 className="text-2xl font-bold text-pink-500 mb-5">Diet Results</h1>
           <div className="space-y-4">
             {/* Table */}
-            <div className="p-6 bg-gray-100 min-h-screen">
-              <h1 className="text-2xl font-bold mb-4 text-center">Daily Meal Plan</h1>
+            <div className="p-6 bg-pink-50 text-gray-600 min-h-screen">
+              <h1 className="text-2xl font-bold mb-4 text-pink-500 text-center">Daily Meal Plan</h1>
               <div className="bg-white rounded-lg shadow-md p-6">
                 {/* Total Daily Calories */}
                 <div className="mb-6">
-                  <h2 className="text-lg font-semibold mb-2">Total Daily Calories</h2>
+                  <h2 className="text-lg  font-semibold mb-2">Total Daily Calories</h2>
                   <p className="text-gray-700">{dietResult.totalDailyCalories} kcal</p>
                 </div>
 
@@ -145,11 +145,11 @@ const DietRecommendationForm = () => {
                   <h2 className="text-lg font-semibold mb-2">Meal Distribution</h2>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {Object.entries(dietResult.mealDistribution).map(([meal, calories]) => (
-                      <div key={meal} className="bg-gray-50 p-4 rounded-lg">
-                        <h3 className="text-sm font-medium text-gray-600 capitalize">
+                      <div key={meal} className="bg-pink-500 p-4 rounded-lg">
+                        <h3 className="text-sm font-medium text-white capitalize">
                           {meal}
                         </h3>
-                        <p className="text-gray-800">{calories} kcal</p>
+                        <p className="text-white">{calories} kcal</p>
                       </div>
                     ))}
                   </div>
@@ -158,12 +158,12 @@ const DietRecommendationForm = () => {
                 
                 {/* Recommended Meals */}
                 <div>
-                  <h2 className="text-lg font-semibold mb-4">Recommended Meals</h2>
+                  <h2 className="text-lg text-pink-400 font-semibold mb-4">Recommended Meals</h2>
                   {/* Responsive Table Wrapper */}
                   <div className="overflow-x-auto">
                     <table className="w-full table-auto">
                       <thead>
-                        <tr className="bg-gray-200">
+                        <tr className="bg-pink-500 text-white">
                           <th className="px-4 py-2 text-left">Meal</th>
                           <th className="px-4 py-2 text-left">Dish</th>
                           <th className="px-4 py-2 text-left">Calories</th>
@@ -192,13 +192,13 @@ const DietRecommendationForm = () => {
 
             {/* Buttons */}
             <button
-              className="w-full bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
+              className="w-42 block mx-auto bg-pink-500 text-white py-2 px-4 rounded-full hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
               onClick={() => alert('Download functionality to be implemented')}
             >
               Download Result
             </button>
             <button
-              className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-42 bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               onClick={() => setDietResult(null)}
             >
               Recommend New Diet
