@@ -46,7 +46,7 @@ const DietRecommendationForm = () => {
   };
 
   return (
-    <div className='w-full'>
+    <div className='w-full pb-10'>
     
       {loading && <PinkPreloader />}
       {!dietResult ? (
@@ -65,7 +65,7 @@ const DietRecommendationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Weight</label>
+        <label className="block text-sm font-medium text-pink-400">Weight in (kg)</label>
         <input
           type="number"
           name="weight"
@@ -76,7 +76,7 @@ const DietRecommendationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Height</label>
+        <label className="block text-sm font-medium text-pink-400">Height in (cm) </label>
         <input
           type="number"
           name="height"

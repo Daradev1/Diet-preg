@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Diet from './Pages/Diet';
 import AboutPage from './Pages/AboutPage';
+import Footer from './Components/Footer';
 const App = () => {
   return (
     <div >
@@ -19,7 +20,7 @@ const App = () => {
       <Route path='/about' element={<AboutPage/>}/>
     </Routes>
     </Router>   
-      
+    <Footer/>  
     </div>
   )
 }

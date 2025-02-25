@@ -1,7 +1,11 @@
 import React from 'react';
 import whatDiet from '../assets/whatDiet.jpg'
-
+import {useNavigate} from 'react-router-dom'
 const DietRecommendationForm = () => {
+
+
+const navigate = useNavigate()
+
   return (
     <div className="flex items-center justify-center mt-20 h-full w-[400px] mx-auto mb-16">
       <div className="bg-card rounded-lg shadow-lg py-2 px-4 w-full max-w-md">
@@ -33,7 +37,7 @@ const DietRecommendationForm = () => {
             </select>
           </div>
           <div className='w-full flex flex-col items-center justify-center my-1'>
-          <button className="bg-button mx-auto text-white font-bold py-2 w-40 rounded-lg">
+          <button onClick={()=>navigate('/diet-recomendation')} className="bg-button mx-auto text-white font-bold py-2 w-40 rounded-lg">
             Recommend Diet
           </button>
           </div>
