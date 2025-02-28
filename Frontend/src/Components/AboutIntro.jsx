@@ -1,7 +1,10 @@
 import React from 'react'
 import ladyImgBg from "../assets/ladyImgBg.png"
+import {useNavigate} from 'react-router-dom'
 const AboutIntro = () => {
+  const navigate = useNavigate()
   return (
+   
     <div className="h-full mt-28 mb-10">
         <div className="flex flex-col-reverse md:flex-row gap-4 justify-center">
             <div className="w-full mx-auto">
@@ -16,7 +19,7 @@ const AboutIntro = () => {
                 
               <p className="text-sm text-gray-600 text-left"> Our team of nutritionists and health professionals is committed to guiding you with personalized, evidence-based recommendations.</p> 
 
-              <button className="bg-button mt-5  text-white font-bold py-1 w-40 rounded-sm">
+              <button onClick={()=>navigate('/about')} className="bg-button mt-5  text-white font-bold py-1 w-40 rounded-sm">
             Learn More
           </button>
             </div>
