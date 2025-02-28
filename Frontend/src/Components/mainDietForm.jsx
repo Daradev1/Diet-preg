@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import PinkPreloader from './preloader';
+import html2pdf from "html2pdf.js";
 
 const DietRecommendationForm = () => {
   const [formData, setFormData] = useState({
@@ -43,6 +44,25 @@ const DietRecommendationForm = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+
+
+  const reportRef = useRef();
+
+  const handleDownload = () => {
+    const element = reportRef.current;
+
+    html2pdf()
+      .set({
+        margin: 2,
+        filename: "Diet_Results.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      })
+      .from(element)
+      .save();
   };
 
   return (
@@ -127,7 +147,7 @@ const DietRecommendationForm = () => {
           </div>
       ) : (
         // Show results if available
-        <div className="text-center py-10">
+        <div className="text-center py-10" ref={reportRef}>
           <h1 className="text-2xl font-bold text-pink-500 mb-5">Diet Results</h1>
           <div className="space-y-4">
             {/* Table */}
@@ -193,7 +213,7 @@ const DietRecommendationForm = () => {
             {/* Buttons */}
             <button
               className="w-42 block mx-auto bg-pink-500 text-white py-2 px-4 rounded-full hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
-              onClick={() => alert('Download functionality to be implemented')}
+              onClick={handleDownload}
             >
               Download Result
             </button>
