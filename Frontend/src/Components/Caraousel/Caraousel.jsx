@@ -10,21 +10,56 @@ const Carousel = () => {
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '1st Trimester',
-      description: 'Pregnancy is divided into three trimesters. In the first trimester, the embryo develops major organs...',
+      description: '	Your body is experiencing a surge in hormones right now, which can lead to nausea...',
+      buttonText: 'Learn More',
+      imgSrc: pregWoman // Replace with actual image paths
+    },
+    {
+      title: 'Know Your Pregnancy Stage',
+      subtitle: '1st Trimester',
+      description: 'The hormone progesterone in particular can trigger digestive discomfort. Including constipation and reflux....',
+      buttonText: 'Learn More',
+      imgSrc: pregWoman // Replace with actual image paths
+    },
+    {
+      title: 'Know Your Pregnancy Stage',
+      subtitle: '1st Trimester',
+      description: 'Many Moms-to-be find that they have no desire to eat some of the healthy foods they used to love...',
       buttonText: 'Learn More',
       imgSrc: pregWoman // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '2nd Trimester',
-      description: 'Pregnancy is divided into three trimesters. In the first trimester, the embryo develops major organs...',
+      description: '	A turning point for the mother and fetus. You will usually begin to feel better and start showing the pregnancy more...',
+      buttonText: 'Learn More',
+      imgSrc: pregWoman // Replace with actual image paths
+    },
+    {
+      title: 'Know Your Pregnancy Stage',
+      subtitle: '2nd Trimester',
+      description: 'Your fetus has now developed all its organs and systems and will now begin growing in length and weight...',
+      buttonText: 'Learn More',
+      imgSrc: pregWoman // Replace with actual image paths
+    },
+    {
+      title: 'Know Your Pregnancy Stage',
+      subtitle: '2nd Trimester',
+      description: 'A few new symptoms are an increased appetite, achy body, some swelling in hands, feet and ankles...',
       buttonText: 'Learn More',
       imgSrc: pregWoman // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '3rd Trimester',
-      description: 'Pregnancy is divided into three trimesters. In the first trimester, the embryo develops major organs...',
+      description: 'Your body gain weight quickly during the third trimester, and part of their body continue to form, eyes open, nail form, hair grows just to name a few of things that go on...',
+      buttonText: 'Learn More',
+      imgSrc: pregWoman // Replace with actual image paths
+    },
+    {
+      title: 'Know Your Pregnancy Stage',
+      subtitle: '3rd Trimester',
+      description: 'With all this body gain weight happening, the food choices are very important for the health of the baby and the mom, most important to eat healthy...',
       buttonText: 'Learn More',
       imgSrc: pregWoman // Replace with actual image paths
     },
