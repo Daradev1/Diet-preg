@@ -9,15 +9,15 @@ const Footer = () => {
         <div className="flex md:flex-row flex-col justify-center items-center space-x-4">
           <div className="flex items-center">
             <FaEnvelope className="mr-2" />
-            <span>info@example.com</span>
+            <span>jeolinks2003@gmail.com </span>
           </div>
           <div className="flex items-center">
             <FaPhone className="mr-2" />
-            <span>+123 456 7890</span>
+            <span>+234-8065123660</span>
           </div>
           <div className="flex items-center">
             <FaMapMarker className="mr-2" />
-            <span>123 Street, City</span>
+            <span>EKSU, Ado Ekiti.</span>
           </div>
         </div>
       </div>
