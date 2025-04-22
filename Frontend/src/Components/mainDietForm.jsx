@@ -24,33 +24,42 @@ const DietRecommendationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(formData);
-    
+  
+    const { age, height, weight, pregnancyStage, dailyActivity } = formData;
+  
+    // Build the query string
+    const queryParams = new URLSearchParams({
+      age,
+      height,
+      weight,
+      preg_stage: pregnancyStage,
+      active: dailyActivity
+    });
+  
+    const url = `https://diet-recommender-server-12o9.onrender.com/api/top_10_diets?${queryParams.toString()}`;
+  
     try {
-      const response = await fetch('https://diet-preg-server.vercel.app/api/diet/recommend', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(url);
       const result = await response.json();
+  
       if (result) {
-        console.log('Success:', result);
+        console.log('Received data:', result);
         setDietResult(result);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error fetching data:', error);
     } finally {
       setLoading(false);
     }
   };
+  
 
 
 
   const reportRef = useRef();
 
   const handleDownload = () => {
+
     const element = reportRef.current;
 
     html2pdf()
@@ -96,7 +105,7 @@ const DietRecommendationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Height in (cm) </label>
+        <label className="block text-sm font-medium text-pink-400">Height in (meters) </label>
         <input
           type="number"
           name="height"
@@ -116,9 +125,9 @@ const DietRecommendationForm = () => {
           required
         >
           <option value="">Choose your stage</option>
-          <option value="first">First Trimester</option>
-          <option value="second">Second Trimester</option>
-          <option value="third">Third Trimester</option>
+          <option value="FirstTrimester">First Trimester</option>
+          <option value="SecondTrimester">Second Trimester</option>
+          <option value="ThirdTrimester ">Third Trimester</option>
         </select>
       </div>
       <div className="mb-4">
@@ -131,7 +140,7 @@ const DietRecommendationForm = () => {
           required
         >
           <option value="">Choose your activity level</option>
-          <option value="light">Light Activity</option>
+          <option value="Sedentary">Light Activity</option>
           <option value="moderate">Moderate Activity</option>
           <option value="active">Active</option>
           <option value="veryActive">Very Active</option>
@@ -145,90 +154,39 @@ const DietRecommendationForm = () => {
       </button>
           </form>
           </div>
-      ) : (
-        // Show results if available
-        <div className="text-center py-10" ref={reportRef}>
-          <h1 className="text-2xl font-bold text-pink-500 mb-5">Diet Results</h1>
-          <div className="space-y-4">
-            {/* Table */}
-            <div className="p-6 bg-pink-50 text-gray-600 min-h-screen">
-              <h1 className="text-2xl font-bold mb-4 text-pink-500 text-center">Daily Meal Plan</h1>
-              <div className="bg-white rounded-lg shadow-md p-6">
-                {/* Total Daily Calories */}
-                <div className="mb-6">
-                  <h2 className="text-lg  font-semibold mb-2">Total Daily Calories</h2>
-                  <p className="text-gray-700">{dietResult.totalDailyCalories} kcal</p>
-                </div>
+      ) : 
+      <div className='mx-auto flex flex-col justify-center'>
+      <div className='w-full items-center justify-center flex'>
+      <span className='text-center my-6 text-2xl text-pink-500 font-semibold capitalize'>Top 10 recommended Diets</span>
+    <div className='w-9 h-1 mt-2 bg-pink-600'>
 
-                {/* Meal Distribution */}
-                <div className="mb-6">
-                  <h2 className="text-lg font-semibold mb-2">Meal Distribution</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {Object.entries(dietResult.mealDistribution).map(([meal, calories]) => (
-                      <div key={meal} className="bg-pink-500 p-4 rounded-lg">
-                        <h3 className="text-sm font-medium text-white capitalize">
-                          {meal}
-                        </h3>
-                        <p className="text-white">{calories} kcal</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                
-                {/* Recommended Meals */}
-                <div>
-                  <h2 className="text-lg text-pink-400 font-semibold mb-4">Recommended Meals</h2>
-                  {/* Responsive Table Wrapper */}
-                  <div className="overflow-x-auto">
-                    <table className="w-full table-auto">
-                      <thead>
-                        <tr className="bg-pink-500 text-white">
-                          <th className="px-4 py-2 text-left">Meal</th>
-                          <th className="px-4 py-2 text-left">Dish</th>
-                          <th className="px-4 py-2 text-left">Calories</th>
-                          <th className="px-4 py-2 text-left">Protein (g)</th>
-                          <th className="px-4 py-2 text-left">Carbs (g)</th>
-                          <th className="px-4 py-2 text-left">Fats (g)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Object.entries(dietResult.recommendedMeals).map(([meal, details]) => (
-                          <tr key={meal} className="border-b border-gray-200 hover:bg-gray-50">
-                            <td className="px-4 py-3 capitalize">{meal}</td>
-                            <td className="px-4 py-3">{details.dish}</td>
-                            <td className="px-4 py-3">{details.calories} kcal</td>
-                            <td className="px-4 py-3">{details.protein}</td>
-                            <td className="px-4 py-3">{details.carbs}</td>
-                            <td className="px-4 py-3">{details.fats}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Buttons */}
-            <button
-              className="w-42 block mx-auto bg-pink-500 text-white py-2 px-4 rounded-full hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
-              onClick={handleDownload}
-            >
-              Download Result
-            </button>
-            <button
-              className="w-42 bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              onClick={() => setDietResult(null)}
-            >
-              Recommend New Diet
-            </button>
-          </div>
-        </div>
-      )}
+    </div>
+      </div>
+      <table ref={reportRef} style={{ width: "100%", borderCollapse: "collapse" }}>
+  <thead>
+    <tr>
+      <th className='text-pink-500' style={{ border: "1px solid #ccc", padding: "0.5rem" }}>#</th>
+      <th className='text-pink-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Description</th>
+      <th className='text-pink-500' style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Calories</th>
+    </tr>
+  </thead>
+  <tbody>
+    {dietResult.top_10_diets.map((item, index) => (
+      <tr key={index}>
+        <td className='text-gray-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>{index + 1}</td>
+        <td className='text-gray-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>{item.description}</td>
+        <td className='text-gray-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>{item.calories}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+      <button onClick={()=>handleDownload()} className='capitalize bg-pink-600 text-white mt-3 drop-shadow-2xl rounded-sm py-1.5 px-2.5 mx-auto text-center '>
+        downaload
+      </button>
+      </div>}
     
     </div>
-  );
+    )
 };
 
 export default DietRecommendationForm;
