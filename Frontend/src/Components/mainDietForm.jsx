@@ -140,10 +140,10 @@ const DietRecommendationForm = () => {
           required
         >
           <option value="">Choose your activity level</option>
-          <option value="Sedentary">Light Activity</option>
-          <option value="moderate">Moderate Activity</option>
-          <option value="active">Active</option>
-          <option value="veryActive">Very Active</option>
+          <option value="Sedentary">Sedentary</option>
+          <option value="Light Active">Light Activity</option>
+          <option value="Moderately Active">Moderate Activity</option>
+          <option value="Very Active">Very Active</option>
         </select>
       </div>
       <button
@@ -156,13 +156,14 @@ const DietRecommendationForm = () => {
           </div>
       ) : 
       <div className='mx-auto flex flex-col justify-center'>
+ 
+      <table ref={reportRef} style={{ width: "100%", borderCollapse: "collapse" }}>
       <div className='w-full items-center justify-center flex'>
       <span className='text-center my-6 text-2xl text-pink-500 font-semibold capitalize'>Top 10 recommended Diets</span>
     <div className='w-9 h-1 mt-2 bg-pink-600'>
 
     </div>
       </div>
-      <table ref={reportRef} style={{ width: "100%", borderCollapse: "collapse" }}>
   <thead>
     <tr>
       <th className='text-pink-500' style={{ border: "1px solid #ccc", padding: "0.5rem" }}>#</th>

@@ -10,6 +10,28 @@ body {
 #app {
     height: 100%;
   } */
+
+  .custom-text {
+    color: rgb(239, 94, 118) !important;
+    transition: color 0.3s;
+    text-decoration: none;
+    
+  }
+  .space{
+    line-height: 30px;
+  }
+  .custom-text2 {
+    color: rgb(5, 85, 5) !important;
+    transition: color 0.3s;
+    text-decoration: none;
+    
+  }
+  
+  .custom-text:hover {
+    color: rgb(160, 85, 94) !important; /* Ash color */
+  }
+
+
 body{
     background-color: #FFFFFF;
     overflow-x: hidden;
