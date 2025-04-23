@@ -109,8 +109,6 @@ const DietRecommendationForm = () => {
         <input
           type="number"
           name="height"
-          min={1.2}
-          max={2.5}
           value={formData.height}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
@@ -129,7 +127,7 @@ const DietRecommendationForm = () => {
           <option value="">Choose your stage</option>
           <option value="FirstTrimester">First Trimester</option>
           <option value="SecondTrimester">Second Trimester</option>
-          <option value="ThirdTrimester ">Third Trimester</option>
+          <option value="ThirdTrimester">Third Trimester</option>
         </select>
       </div>
       <div className="mb-4">
