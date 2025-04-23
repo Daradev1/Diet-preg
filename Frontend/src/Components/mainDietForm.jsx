@@ -109,6 +109,8 @@ const DietRecommendationForm = () => {
         <input
           type="number"
           name="height"
+          min={1.2}
+          max={2.5}
           value={formData.height}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
@@ -155,15 +157,15 @@ const DietRecommendationForm = () => {
           </form>
           </div>
       ) : 
-      <div className='mx-auto flex flex-col justify-center'>
- 
-      <table ref={reportRef} style={{ width: "100%", borderCollapse: "collapse" }}>
-      <div className='w-full items-center justify-center flex'>
-      <span className='text-center my-6 text-2xl text-pink-500 font-semibold capitalize'>Top 10 recommended Diets</span>
-    <div className='w-9 h-1 mt-2 bg-pink-600'>
+      <div className='mx-auto mt-4 flex flex-col justify-center'>
+     <div  ref={reportRef}>
 
-    </div>
+    <div className='w-full mb-4 items-center justify-center flex'>
+      <span className='text-center text-xl md:text-2xl text-pink-500 font-semibold capitalize'>Top 10 recommended Diets</span>
+    <div className='w-9 h-1  bg-pink-600'></div>
       </div>
+
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
   <thead>
     <tr>
       <th className='text-pink-500' style={{ border: "1px solid #ccc", padding: "0.5rem" }}>#</th>
@@ -181,6 +183,7 @@ const DietRecommendationForm = () => {
     ))}
   </tbody>
 </table>
+</div>   
       <button onClick={()=>handleDownload()} className='capitalize bg-pink-600 text-white mt-3 drop-shadow-2xl rounded-sm py-1.5 px-2.5 mx-auto text-center '>
         downaload
       </button>
