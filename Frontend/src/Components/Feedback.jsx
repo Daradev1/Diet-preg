@@ -43,7 +43,7 @@ const handleRatingClick = (selectedRating) => {
         </div>
         <h1 className="text-xl md:text-2xl font-bold text-button mt-2">Fill the form to submit your feedback</h1>
         <p className="text-gray-500 w-[80%] mt-4">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis eu sit massa volutpat massa rhoncus odio feugiat tellus, elit massa sed.
+        Thank you so much for taking the time to share your feedback! Your kind words mean the world to us, and we're thrilled to hear about your positive experience. We're committed to continuing to provide exceptional support and expertise to our users. We're grateful for your support and look forward to serving you better in the future!
         </p>
       </div>
 

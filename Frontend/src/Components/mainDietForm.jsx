@@ -76,118 +76,145 @@ const DietRecommendationForm = () => {
 
   return (
     <div className='w-full pb-10'>
-    
-      {loading && <PinkPreloader />}
-      {!dietResult ? (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-          <h1 className="text-2xl font-bold mb-5 text-pink-500">Diet Recommendation</h1>
-          <form onSubmit={handleSubmit} className='grid grid-cols-2 gap-5'>
-          <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Age</label>
-        <input
-          type="number"
-          name="age"
-          value={formData.age}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-indigo-500"
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Weight in (kg)</label>
-        <input
-          type="number"
-          name="weight"
-          value={formData.weight}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Height in (meters) </label>
-        <input
-          type="number"
-          name="height"
-          value={formData.height}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Pregnancy Stage</label>
-        <select
-          name="pregnancyStage"
-          value={formData.pregnancyStage}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
-          required
-        >
-          <option value="">Choose your stage</option>
-          <option value="FirstTrimester">First Trimester</option>
-          <option value="SecondTrimester">Second Trimester</option>
-          <option value="ThirdTrimester">Third Trimester</option>
-        </select>
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-pink-400">Daily Activity</label>
-        <select
-          name="dailyActivity"
-          value={formData.dailyActivity}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
-          required
-        >
-          <option value="">Choose your activity level</option>
-          <option value="Sedentary">Sedentary</option>
-          <option value="Light Active">Light Activity</option>
-          <option value="Moderately Active">Moderate Activity</option>
-          <option value="Very Active">Very Active</option>
-        </select>
-      </div>
-      <button
-        type="submit"
-        className="w-28 bg-pink-600 text-white h-10 mt-4  rounded-md hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
-      >
-        Submit
-      </button>
-          </form>
-          </div>
-      ) : 
-      <div className='mx-auto mt-4 flex flex-col justify-center'>
-     <div  ref={reportRef}>
+  {loading && <PinkPreloader />}
 
-    <div className='w-full mb-4 items-center justify-center flex'>
-      <span className='text-center text-xl md:text-2xl text-pink-500 font-semibold capitalize'>Top 10 recommended Diets</span>
-    <div className='w-9 h-1  bg-pink-600'></div>
-      </div>
-
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-  <thead>
-    <tr>
-      <th className='text-pink-500' style={{ border: "1px solid #ccc", padding: "0.5rem" }}>#</th>
-      <th className='text-pink-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Description</th>
-      <th className='text-pink-500' style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Calories</th>
-    </tr>
-  </thead>
-  <tbody>
-    {dietResult.top_10_diets.map((item, index) => (
-      <tr key={index}>
-        <td className='text-gray-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>{index + 1}</td>
-        <td className='text-gray-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>{item.description}</td>
-        <td className='text-gray-500'  style={{ border: "1px solid #ccc", padding: "0.5rem" }}>{item.calories}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-</div>   
-      <button onClick={()=>handleDownload()} className='capitalize bg-pink-600 text-white mt-3 drop-shadow-2xl rounded-sm py-1.5 px-2.5 mx-auto text-center '>
-        downaload
-      </button>
-      </div>}
-    
+  {!dietResult ? (
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-5 text-pink-500">Diet Recommendation</h1>
+      <form onSubmit={handleSubmit} className='grid grid-cols-2 gap-5'>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-pink-400">Age</label>
+          <input
+            type="number"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-pink-400">Weight in (kg)</label>
+          <input
+            type="number"
+            name="weight"
+            value={formData.weight}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-pink-400">Height in (meters)</label>
+          <input
+            type="number"
+            name="height"
+            value={formData.height}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-pink-400">Pregnancy Stage</label>
+          <select
+            name="pregnancyStage"
+            value={formData.pregnancyStage}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+            required
+          >
+            <option value="">Choose your stage</option>
+            <option value="FirstTrimester">First Trimester</option>
+            <option value="SecondTrimester">Second Trimester</option>
+            <option value="ThirdTrimester">Third Trimester</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-pink-400">Daily Activity</label>
+          <select
+            name="dailyActivity"
+            value={formData.dailyActivity}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+            required
+          >
+            <option value="">Choose your activity level</option>
+            <option value="Sedentary">Sedentary</option>
+            <option value="Light Active">Light Activity</option>
+            <option value="Moderately Active">Moderate Activity</option>
+            <option value="Very Active">Very Active</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          className="w-28 bg-pink-600 text-white h-10 mt-4 rounded-md hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
+        >
+          Submit
+        </button>
+      </form>
     </div>
+  ) : <div className="mx-auto max-w-4xl mt-10 px-4">
+  <div ref={reportRef} className="space-y-8">
+
+    {/* 🧮 Caloric Summary */}
+    <div className="bg-white p-6 rounded-xl shadow-md">
+      <h2 className="text-2xl font-semibold text-pink-600 mb-4">Caloric Summary</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+        <p><span className="font-semibold">Classification:</span> <span className="capitalize">{dietResult.caloric_classification}</span></p>
+        <p><span className="font-semibold">Recommended Daily Calories:</span> {dietResult.recommended_daily_calories} kcal</p>
+      </div>
+    </div>
+
+    {/* 🍽 Recommended Diets */}
+    <div className="bg-white p-6 rounded-xl shadow-md">
+      <h2 className="text-2xl font-semibold text-pink-600 mb-4">Recommended Diets</h2>
+      <ul className="space-y-2 list-disc pl-5 text-gray-800">
+        {dietResult.recommended_diets?.map((item, index) => (
+          <li key={index}>
+            <span className="font-medium">{item.Shrt_Desc}</span> – {item.Energ_Kcal} kcal
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* 🥗 Top 10 Diets Table */}
+    <div className="bg-white p-6 rounded-xl shadow-md overflow-x-auto">
+      <h2 className="text-2xl font-semibold text-pink-600 mb-4">Top 10 Recommended Diets</h2>
+      <table className="min-w-full border border-gray-200">
+        <thead className="bg-pink-100 text-pink-700">
+          <tr>
+            <th className="text-left px-4 py-2 border">#</th>
+            <th className="text-left px-4 py-2 border">Description</th>
+            <th className="text-left px-4 py-2 border">Calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dietResult.top_10_diets?.map((item, index) => (
+            <tr key={index} className="hover:bg-gray-50">
+              <td className="px-4 py-2 border text-gray-700">{index + 1}</td>
+              <td className="px-4 py-2 border text-gray-700">{item.Shrt_Desc || item.description}</td>
+              <td className="px-4 py-2 border text-gray-700">{item.Energ_Kcal || item.calories} kcal</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* 📥 Download Button */}
+    <div className="flex justify-center">
+      <button
+        onClick={handleDownload}
+        className="bg-pink-600 hover:bg-pink-500 text-white px-6 py-2 rounded-lg shadow transition-all"
+      >
+        Download Report
+      </button>
+    </div>
+  </div>
+</div>
+}
+</div>
+
     )
 };
 
