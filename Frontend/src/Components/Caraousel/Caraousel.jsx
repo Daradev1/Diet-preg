@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import "./Carousel.css"
 import pregWoman from '../../assets/pregWoman.jpg'
-
+import trimester1 from '../../assets/2ndTrimester.jpg'
+import trimester2 from '../../assets/3rdTrimester.jpg'
 const Carousel = () => {
   const cards = [
     {
@@ -33,35 +34,35 @@ const Carousel = () => {
       subtitle: '2nd Trimester',
       description: '	A turning point for the mother and fetus. You will usually begin to feel better and start showing the pregnancy more...',
       buttonText: 'Learn More',
-      imgSrc: pregWoman // Replace with actual image paths
+      imgSrc: trimester1 // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '2nd Trimester',
       description: 'Your fetus has now developed all its organs and systems and will now begin growing in length and weight...',
       buttonText: 'Learn More',
-      imgSrc: pregWoman // Replace with actual image paths
+      imgSrc: trimester1 // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '2nd Trimester',
       description: 'A few new symptoms are an increased appetite, achy body, some swelling in hands, feet and ankles...',
       buttonText: 'Learn More',
-      imgSrc: pregWoman // Replace with actual image paths
+      imgSrc: trimester1 // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '3rd Trimester',
       description: 'Your body gain weight quickly during the third trimester, and part of their body continue to form, eyes open, nail form, hair grows just to name a few of things that go on...',
       buttonText: 'Learn More',
-      imgSrc: pregWoman // Replace with actual image paths
+      imgSrc: trimester2 // Replace with actual image paths
     },
     {
       title: 'Know Your Pregnancy Stage',
       subtitle: '3rd Trimester',
       description: 'With all this body gain weight happening, the food choices are very important for the health of the baby and the mom, most important to eat healthy...',
       buttonText: 'Learn More',
-      imgSrc: pregWoman // Replace with actual image paths
+      imgSrc: trimester2 // Replace with actual image paths
     },
     // Add more cards as needed
   ];
