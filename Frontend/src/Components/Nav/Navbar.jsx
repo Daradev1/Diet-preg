@@ -10,7 +10,7 @@ const NavigationBar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Know Your Pregnancy Stage', path: '/pregnancy-stage' },
+    // { name: 'Know Your Pregnancy Stage', path: '/pregnancy-stage' },
     { name: 'Diet Preg Recommendation', path: '/diet-recomendation' },
   ]
 
